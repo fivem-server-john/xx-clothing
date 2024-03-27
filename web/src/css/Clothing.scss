@@ -1,0 +1,50 @@
+.menu { 
+    position: absolute;
+    width: 40vh;
+    height: 73vh;
+
+    top: 50%;
+    right: 1vh;
+
+    transform: translateY(-50%);
+
+    // background-color: red;
+
+    .clothing-element {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        margin-bottom: 0.5vh;
+
+        max-height: 40vh;
+
+        transition: all 0.5s ease-in-out;
+
+        // background-color: blue;
+
+        .header {
+            position: relative;
+            width: 100%;
+            height: 4vh;
+
+            border-radius: var(--default-border-radius);
+
+            background: var(--main-color);
+
+            .label {
+                position: absolute;
+
+                top: 50%;
+                left: 1vh;
+
+                transform: translateY(-50%);
+
+                font-size: 1.5vh;
+
+                color: var(--white);
+            }
+        }
+    }
+}
