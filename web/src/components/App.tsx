@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../css/App.css';
+import '../css/App.scss';
 import { fetchNui } from "../utils/fetchNui";
 import { useNuiEvent } from "../hooks/useNuiEvent";
 import { setTranslations } from '../utils/translation';

@@ -1,22 +1,10 @@
-import "../../css/ImageSelector.css";
-import { getImagePath } from "../../helpers/ImagePath";
-
-function Image() {
-
-    function getPath() {
-        return getImagePath('a_m_m_genfat_01');
-    }
-
-    return (
-        <div className="image">
-            <img src={getPath()}></img>
-        </div>
-    )
-}
+import "../../css/ImageSelector.scss";
+import { Image } from "./image";
 
 interface ImageSelectorProps {
     images: string[];
     show: boolean;
+    onClick: (index: number) => void;
 }
 
 export function ImageSelector(props: ImageSelectorProps) {
@@ -33,7 +21,7 @@ export function ImageSelector(props: ImageSelectorProps) {
         if (!props.show) return null;
         return props.images.map((image, index) => {
             return (
-                <Image key={index} />
+                <Image key={index} image = {image} onClick = {() => {props.onClick(index)}}/>
             )
         })
     }

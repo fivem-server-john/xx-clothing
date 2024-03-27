@@ -6,6 +6,10 @@ import { ImageSelector } from "./image-selector";
 interface ClothingElementProps {
     label: string;
     valueIdentifier: string;
+    firstInterval: [number, number];
+    secondInterval: [number, number];
+    disableSecond: boolean;
+    images: string[];
 }
 
 
@@ -19,7 +23,7 @@ function Header(props: {label: string}) {
 
 export function ClothingElement(props: ClothingElementProps) {
     const [componentSelector, setComponentSelector] = useState<Selector>(
-        {min: 0, max: 10, value: 0, 
+        {min: props.firstInterval[0], max: props.firstInterval[1], value: props.firstInterval[0], 
             onChange: (value) => {
                 setComponentSelector({...componentSelector, value})
                 handleSelectorChange();
@@ -27,7 +31,7 @@ export function ClothingElement(props: ClothingElementProps) {
         }
     );
     const [variantSelector, setVariantSelector] = useState<Selector>(
-        {min: 0, max: 5, value: 0, 
+        {min: props.secondInterval[0], max: props.secondInterval[1], value: props.secondInterval[0], 
             onChange: (value) => {
                 setVariantSelector({...variantSelector, value})
                 handleSelectorChange();
@@ -45,14 +49,19 @@ export function ClothingElement(props: ClothingElementProps) {
         })
     }
 
+    function handleImageClick(index: number) {
+        setComponentSelector({...componentSelector, value: index + 1});
+        handleSelectorChange();
+    }
+
     return (
         <div className="clothing-element">
             <Header label={props.label} />
-            <ImageSelector images={["", "", "", "", "", ""]} show = {true} />
+            <ImageSelector images={props.images} show = {props.images.length > 0} onClick = {handleImageClick} />
             <NumberSelector 
                 first = {componentSelector}
                 second={variantSelector}
-                disableSecond={false}
+                disableSecond={props.disableSecond}
             />
            
         </div>

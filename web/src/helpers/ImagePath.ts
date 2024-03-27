@@ -6,5 +6,5 @@ export function getImagePath(name: string, type: string = 'webp') {
         return '/images/' + name + '.'+ type;
     }
 
-    return 'nui://xx-clothing/web/images/' + name + '.' + type;
+    return 'nui://xx-clothing/web/public/images/' + name + '.' + type;
 }

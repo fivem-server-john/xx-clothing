@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../css/NumberSelector.css";
+import "../../css/NumberSelector.scss";
 
 export interface Selector {
     min: number;

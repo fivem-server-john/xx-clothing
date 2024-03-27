@@ -1012,5 +1012,7 @@ Peds = {
 }
 
 CustomPeds = {
-    
+    "gunterpeter_ped",
+    "u_m_o_dean",
+    "larry_ped"
 }
