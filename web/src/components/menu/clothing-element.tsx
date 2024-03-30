@@ -13,10 +13,17 @@ interface ClothingElementProps {
 }
 
 
-function Header(props: {label: string}) {
+function Header(props: {label: string, isExpandable: boolean, isExpanded: boolean, onClick: Function}) {
     return (
-        <div className="header">
+        <div className="header" onClick={() => {props.onClick()}}>
             <div className="label">{props.label}</div>
+
+            {props.isExpandable && 
+                <div className="expand-arrow">
+                    <i className={props.isExpanded ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down"}></i>
+                </div>
+            }
+
         </div>
     )
 }
@@ -39,6 +46,8 @@ export function ClothingElement(props: ClothingElementProps) {
         }
     );
 
+    const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
     function handleSelectorChange() {
         fetchNui<any>('selectorUpdated', {
             identifier: props.valueIdentifier,
@@ -54,10 +63,20 @@ export function ClothingElement(props: ClothingElementProps) {
         handleSelectorChange();
     }
 
+    function isExpandable() {
+        return props.images.length > 0;
+    }
+
+    function handleClick() {
+        if (isExpandable() === false) return;
+
+        setIsExpanded(!isExpanded);
+    }
+
     return (
-        <div className="clothing-element">
-            <Header label={props.label} />
-            <ImageSelector images={props.images} show = {props.images.length > 0} onClick = {handleImageClick} />
+        <div className="clothing-element" >
+            <Header onClick={handleClick} label={props.label} isExpandable = {isExpandable()} isExpanded = {isExpanded}/>
+            <ImageSelector images={props.images} show = {props.images.length > 0 && isExpanded} onClick = {handleImageClick} />
             <NumberSelector 
                 first = {componentSelector}
                 second={variantSelector}

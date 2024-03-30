@@ -8,7 +8,7 @@ interface ImageSelectorProps {
 }
 
 export function ImageSelector(props: ImageSelectorProps) {
-
+    
     function getHeight() {
         if (props.show) {
             return "30vh";
@@ -25,6 +25,8 @@ export function ImageSelector(props: ImageSelectorProps) {
             )
         })
     }
+
+    if (!props.images || props.images.length === 0 || props.show === false) return null;
 
     return (
         <div className="image-selector" style={{maxHeight: getHeight()}}>

@@ -10,7 +10,7 @@ import { ClothingMenu } from "./clothing/clothing";
 
 
 export const Menu: React.FC = () => {
-    const [menuVisible, setMenuVisible] = useState(true);
+    const [menuVisible, setMenuVisible] = useState(false);
     const [menuType, setMenuType] = useState(1);
 
     useNuiEvent<any>('setMenuVisible', (data) => {

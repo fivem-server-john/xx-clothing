@@ -7,7 +7,7 @@ function Database()
             CREATE TABLE IF NOT EXISTS clothing_playeroutfit (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 citizenid VARCHAR(50),
-                outfitname VARCHAR(255),
+                outfitname VARCHAR(255)
             )
             ]]
         )
@@ -28,7 +28,7 @@ function Database()
         exports.oxmysql:executeSync(
             [[
             CREATE TABLE IF NOT EXISTS clothing_prefabs (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                id INT AUTO_INCREMENT PRIMARY KEY
                 
             )
             ]]

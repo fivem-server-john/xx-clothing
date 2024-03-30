@@ -16,8 +16,6 @@
         width: 100%;
         height: auto;
 
-        margin-bottom: 0.5vh;
-
         max-height: 40vh;
 
         transition: all 0.5s ease-in-out;
@@ -30,6 +28,8 @@
             height: 4vh;
 
             border-radius: var(--default-border-radius);
+
+            margin-bottom: 0.5vh;
 
             background: var(--main-color);
 
@@ -44,6 +44,41 @@
                 font-size: 1.5vh;
 
                 color: var(--white);
+            }
+
+            .expand-arrow {
+                position: absolute;
+
+                top: 50%;
+                right: 1vh;
+
+                transform: translateY(-50%);
+
+                width: 2vh;
+                height: 2vh;
+
+                background: var(--second-color);
+
+                border-radius: var(--default-border-radius);
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                i {
+                    position: absolute;
+
+                    top: 50%;
+                    left: 50%;
+                    width: 100%;
+                    text-align: center;
+                    
+                    transform: translate(-50%, -50%);
+
+                    font-size: 1.2vh;
+                    color: var(--white);
+                }
+
             }
         }
     }

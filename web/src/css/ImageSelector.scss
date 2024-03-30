@@ -12,14 +12,13 @@
     flex-wrap: wrap;
     gap: 0.5vh;
 
-    margin-top: 0.5vh;
-
+    margin-bottom: 0.5vh;
     
     .image {
         position: relative;
 
         width: 9.4vh;
-        height: 9.6vh;
+        height: 9.4vh;
 
         border-radius: var(--default-border-radius);
 
@@ -41,8 +40,8 @@
 
             transform: translate(-50%, -50%);
 
-            width: 4vh;
-            height: 8vh;
+            width: 3.7vh;
+            height: 7.5vh;
 
         }
         
