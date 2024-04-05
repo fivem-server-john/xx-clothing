@@ -1,3 +1,20 @@
+AddEventHandler('xx-character-selector:characterCreated', function()
+    OpenCharacterCreator()
+end)
+
+
+function OpenCharacterCreator() 
+    SendNUIMessage({
+        action = "setMenuVisible",
+        data = {
+            menuType = 1,
+            visible = true
+        }
+    })
+
+    SetNuiFocus(true, true)
+end
+
 RegisterNUICallback('fetchMenuData', function(data, cb)
     local dataType = data.type
 
