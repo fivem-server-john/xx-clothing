@@ -3,7 +3,7 @@ import '../css/App.scss';
 import { fetchNui } from "../utils/fetchNui";
 import { useNuiEvent } from "../hooks/useNuiEvent";
 import { setTranslations } from '../utils/translation';
-import { Menu } from './menu/menu';
+import { Menu } from '../pages/menu';
 
 
 const App: React.FC = () => {

@@ -8,7 +8,46 @@
 
     transform: translateY(-50%);
 
-    // background-color: red;
+    .actions {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        margin-bottom: 0.2vh;
+
+        border-radius: var(--default-border-radius);
+
+        
+
+        .action {
+            position: relative;
+
+            width: 4vh;
+            height: 4vh;
+            border-radius: var(--default-border-radius);
+
+            background: var(--background-fade);
+            
+            i {
+                font-size: 1.4vh;
+    
+                color: var(--foreground);
+                position: absolute;
+
+                top: 50%;
+                left: 50%;
+
+                transform: translate(-50%, -50%);
+            
+            }
+
+            &:hover {
+                background: var(--muted);
+                cursor: pointer;
+            }
+        }
+    }
 
     .clothing-element {
         position: relative;
@@ -31,7 +70,7 @@
 
             margin-bottom: 0.5vh;
 
-            background: var(--main-color);
+            background: var(--background-fade);
 
             .label {
                 position: absolute;
@@ -42,8 +81,9 @@
                 transform: translateY(-50%);
 
                 font-size: 1.5vh;
+                line-height: 1.5vh;
 
-                color: var(--white);
+                color: var(--foreground);
             }
 
             .expand-arrow {
@@ -56,10 +96,6 @@
 
                 width: 2vh;
                 height: 2vh;
-
-                background: var(--second-color);
-
-                border-radius: var(--default-border-radius);
 
                 display: flex;
                 justify-content: center;
@@ -76,9 +112,14 @@
                     transform: translate(-50%, -50%);
 
                     font-size: 1.2vh;
-                    color: var(--white);
+                    color: var(--foreground);
                 }
 
+            }
+
+            &:hover {
+                background: var(--muted);
+                cursor: pointer;
             }
         }
     }

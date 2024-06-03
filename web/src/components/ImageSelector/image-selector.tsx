@@ -1,4 +1,4 @@
-import "../../css/ImageSelector.scss";
+import "./ImageSelector.scss";
 import { Image } from "./image";
 
 interface ImageSelectorProps {

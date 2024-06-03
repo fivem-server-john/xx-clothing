@@ -1,4 +1,4 @@
-import { ClothingElement } from "../clothing-element";
+import { ClothingElement } from "../../components/menu/clothing-element";
 
 export function ClothingMenu() {
     return (

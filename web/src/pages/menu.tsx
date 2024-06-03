@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useNuiEvent } from "../../hooks/useNuiEvent";
-import "../../css/Clothing.scss"
+import { useNuiEvent } from "../hooks/useNuiEvent";
+import "../css/Clothing.scss"
 import { CharacterCreator } from "./charactercreator/charactercreator";
 import { ClothingMenu } from "./clothing/clothing";
 
@@ -10,7 +10,7 @@ import { ClothingMenu } from "./clothing/clothing";
 
 
 export const Menu: React.FC = () => {
-    const [menuVisible, setMenuVisible] = useState(false);
+    const [menuVisible, setMenuVisible] = useState(true);
     const [menuType, setMenuType] = useState(1);
 
     useNuiEvent<any>('setMenuVisible', (data) => {

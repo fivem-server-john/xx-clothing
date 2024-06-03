@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { NumberSelector, Selector } from "./number-selector";
+import { useEffect, useState } from "react";
+import { NumberSelector, Selector } from "../NumberSelector/number-selector";
 import { fetchNui } from "../../utils/fetchNui";
-import { ImageSelector } from "./image-selector";
+import { ImageSelector } from "../ImageSelector/image-selector";
 
 interface ClothingElementProps {
     label: string;
@@ -10,6 +10,7 @@ interface ClothingElementProps {
     secondInterval: [number, number];
     disableSecond: boolean;
     images: string[];
+    handleElementChange: Function;
 }
 
 
@@ -32,8 +33,8 @@ export function ClothingElement(props: ClothingElementProps) {
     const [componentSelector, setComponentSelector] = useState<Selector>(
         {min: props.firstInterval[0], max: props.firstInterval[1], value: props.firstInterval[0], 
             onChange: (value) => {
-                setComponentSelector({...componentSelector, value})
-                handleSelectorChange();
+                console.log(value);
+                setComponentSelector({...componentSelector, value: value})
             }
         }
     );
@@ -41,26 +42,18 @@ export function ClothingElement(props: ClothingElementProps) {
         {min: props.secondInterval[0], max: props.secondInterval[1], value: props.secondInterval[0], 
             onChange: (value) => {
                 setVariantSelector({...variantSelector, value})
-                handleSelectorChange();
             }
         }
     );
 
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-    function handleSelectorChange() {
-        fetchNui<any>('selectorUpdated', {
-            identifier: props.valueIdentifier,
-            component: componentSelector.value,
-            variant: variantSelector.value,
-        }).then((response) => {
-           
-        })
-    }
+    useEffect(() => {
+        props.handleElementChange(props.valueIdentifier, componentSelector.value, variantSelector.value);
+    }, [componentSelector.value, variantSelector.value])
 
     function handleImageClick(index: number) {
         setComponentSelector({...componentSelector, value: index + 1});
-        handleSelectorChange();
     }
 
     function isExpandable() {

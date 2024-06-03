@@ -1,4 +1,6 @@
 Peds = {
+    "mp_m_freemode_01",
+    "mp_f_freemode_01",
     "a_f_m_beach_01",
     "a_f_m_bevhills_01",
     "a_f_m_bevhills_02",
@@ -728,7 +730,6 @@ Peds = {
     "mp_f_execpa_01",
     "mp_f_execpa_02",
     "mp_f_forgery_01",
-    "mp_f_freemode_01",
     "mp_f_helistaff_01",
     "mp_f_meth_01",
     "mp_f_misty_01",
@@ -747,7 +748,6 @@ Peds = {
     "mp_m_famdd_01",
     "mp_m_fibsec_01",
     "mp_m_forgery_01",
-    "mp_m_freemode_01",
     "mp_m_g_vagfun_01",
     "mp_m_marston_01",
     "mp_m_meth_01",
