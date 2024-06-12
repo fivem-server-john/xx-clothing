@@ -3,6 +3,7 @@ import { useNuiEvent } from "../hooks/useNuiEvent";
 import "../css/Clothing.scss"
 import { CharacterCreator } from "./charactercreator/charactercreator";
 import { ClothingMenu } from "./clothing/clothing";
+import { fetchNui } from "../utils/fetchNui";
 
 // Menu Types
 //1: Character Creator
@@ -21,11 +22,17 @@ export const Menu: React.FC = () => {
         setMenuVisible(false);
     });
 
+    function handleCloseMenu() {
+        setMenuVisible(false);
+
+        fetchNui<any>('closeMenu', {});
+    }
+
     if (!menuVisible) return null;
 
 
     if (menuType === 1) {
-        return <CharacterCreator />
+        return <CharacterCreator closeMenu = {handleCloseMenu} />
     }
     if (menuType === 2) {
         return <ClothingMenu />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./clothing-element.scss"
 import { NumberSelector, Selector } from "../NumberSelector/number-selector";
 import { fetchNui } from "../../utils/fetchNui";
 import { ImageSelector } from "../ImageSelector/image-selector";

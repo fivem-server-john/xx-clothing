@@ -14,17 +14,26 @@ interface CharacterCreatorData {
     customPeds: string[]
 }
 
+interface CharacterCreatorProps {
+    closeMenu: () => void;
+}
+
 let currentCharacterData: CharacterProperties = {pedModel: ""};
-export function CharacterCreator() {
+export function CharacterCreator({closeMenu}: CharacterCreatorProps) {
     const [data, setData] = useState<CharacterCreatorData>(testData);
 
     useEffect(() => {
         fetchNui<any>('fetchMenuData', {
             type: 1,
-        }).then((response) => {
+        }, testData).then((response) => {
             setData(response);
         })
     }, []);
+
+    const handleScroll = (e: any) => {
+        const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
+        console.log(scrollTop, scrollHeight, clientHeight);
+    }
 
     if (!data) return null;
 
@@ -46,7 +55,7 @@ export function CharacterCreator() {
     }
 
     function handleSaveClick() {
-
+        closeMenu();
     }
 
     return (
